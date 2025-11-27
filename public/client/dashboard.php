@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// If user is not logged in, redirect to login
-if (!isset($_SESSION['client_id'])) {
-    header("Location: login.php");
+// Block access if client is NOT logged in
+if (!isset($_SESSION["client_logged_in"])) {
+    header("Location: /public/client/login.php");
     exit;
 }
 ?>
@@ -11,14 +11,14 @@ if (!isset($_SESSION['client_id'])) {
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Client Dashboard</title>
 </head>
 <body>
+    <h1>Welcome to the Client Dashboard</h1>
 
-<h2>Welcome to the Client Dashboard</h2>
-<p>You are logged in successfully.</p>
+    <p>You are logged in successfully.</p>
 
-<a href="logout.php">Logout</a>
-
+    <a href="/public/client/logout.php">Logout</a>
 </body>
 </html>
