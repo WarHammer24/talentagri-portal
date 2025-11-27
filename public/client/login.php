@@ -14,7 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($email === $validEmail && $password === $validPassword) {
 
         $_SESSION["client_logged_in"] = true;
-        header("Location: /public/client/dashboard.php");
+
+        // CORRECT REDIRECT (same folder)
+        header("Location: dashboard.php");
         exit;
 
     } else {
